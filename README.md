@@ -2,10 +2,10 @@
 This just a simple Discord client for the 3ds build using the [Sleepy Discord library](https://github.com/yourWaifu/sleepy-discord).
 
 # Why
-I noticed that a few Discord clients for consoles were using the Discord api incorrectly causing huge issues for the client. So, I decided to make this as an example of how I think it should have been done. 
+I noticed that a few Discord clients for consoles were using the Discord api incorrectly causing huge issues for those clients. So, I decided to make this as an example of how I think it should have been done. 
 
 # How to use
-First you need a token to an account, because Discord doesn't want people asking for passwords. And place this into a file called ``discord token.txt`` in the root of your sd card.
+First you need a token to an account that you own, because Discord doesn't want people asking for passwords. Anyway, place this into a file called ``discord token.txt`` in the root of your sd card.
 
 ## Controls
 |Button       | Function                           |
