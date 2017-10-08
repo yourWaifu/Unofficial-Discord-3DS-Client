@@ -17,7 +17,7 @@ First you need a token to an account that you own, because Discord doesn't want 
 
 # Dear Homebrew devs,
 
-If you are a dev planning to make a Discord client as a cool homebrew app, please direct message Sleepy Flower Girl on the Discord API server for help.
+If you are a dev planning to make a Discord client as a cool homebrew app, please direct message Sleepy Flower Girl on the [Discord API server](https://discord.gg/discord-api) for help.
 
 # How to build
 If you haven't done so already, install devkitpro. You can find instructions to do this here http://wiki.gbatemp.net/wiki/3DS_Homebrew_Development#Install_devkitARM
