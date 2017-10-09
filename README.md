@@ -27,3 +27,7 @@ Download and compile wslay from here https://github.com/Cruel/3ds_portlibs. Plac
 Download and compile Sleepy Discord for the 3ds from here https://github.com/yourWaifu/sleepy-discord. Instructions for compiling for the 3ds is in ``buildtools/Readme.md``. Once that's done, place lib and include files in ``devkitpro/portlibs/3ds``.
 
 Now you just need use make, and it should compile to a new folder ``output/3ds-arm``.
+
+#
+
+I also would like to thank people like Sono and others in the Nintendo Homebrew #dev channel for helping me. 
