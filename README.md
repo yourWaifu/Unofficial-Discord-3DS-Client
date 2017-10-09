@@ -8,12 +8,12 @@ I noticed that a few Discord clients for consoles were using the Discord api inc
 First you need a token to an account that you own, because Discord doesn't want people asking for passwords. Anyway, place this into a file called ``discord token.txt`` in the root of your sd card.
 
 ## Controls
-|Button       | Function                           |
-|-------------|------------------------------------|
-| D-Pad Down  | Change Server to the next Server   |
-| D-Pad Right | Change channel to the next channel |
-| Y           | Load messages                      |
-| A           | Send Message                       |
+| Function      | Button      |
+|---------------|-------------|
+| Next channel  | D-Pad Down  |
+| Next server   | D-Pad Right |
+| Load messages | Y           |
+| Send Message  | A           |
 
 # Dear Homebrew devs,
 
