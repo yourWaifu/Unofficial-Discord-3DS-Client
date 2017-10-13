@@ -1,5 +1,3 @@
-#define DEBUGGING
-
 #include <3ds.h>
 #include <malloc.h>
 #include <memory>
@@ -69,8 +67,20 @@ int main() {
 
 	//start the discord client
 	tokenFile token("discord token.txt");
-	if (token.getSize() < 0) printf("error can't find or read text file with discord token");
-	gfxFlushBuffers();
+	if (token.getSize() < 0) { //error check
+		printf("Error: could not find file called\n"
+			"discord token.txt in the root of your\n"
+			"SD card. Please place a bot token in\n"
+			"that file.");
+		gfxFlushBuffers();
+		while (aptMainLoop()) {
+			hidScanInput();
+			u32 keysPressedDown = hidKeysDown();
+			if (keysPressedDown)
+				return EXIT_SUCCESS;
+			gspWaitForVBlank();
+		}
+	}
 	ThreeDSDiscordClient client(token.getToken());
 	//clientPointer = &client;
 	token.close();

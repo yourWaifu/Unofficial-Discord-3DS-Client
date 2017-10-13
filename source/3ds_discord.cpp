@@ -59,6 +59,7 @@ void ThreeDSDiscordClient::switchChannel() {
 }
 
 void ThreeDSDiscordClient::loadMessages() {
+	if (servers.size() == 0) return;
 	std::vector<SleepyDiscord::Message> messages = getMessages(getCurrentChannel().id, limit, "", 8);
 	for (std::vector<SleepyDiscord::Message>::reverse_iterator i = messages.rbegin(), end = messages.rend(); i != end; ++i) {
 		addNewMessage(*i);
@@ -66,6 +67,7 @@ void ThreeDSDiscordClient::loadMessages() {
 }
 
 void ThreeDSDiscordClient::launchKeyboardAndSentMessage() {
+	if (servers.size() == 0) return;
 	//tell discord that we are typing
 	if (sendTyping(getCurrentChannel().id) == false) //error check
 		return;

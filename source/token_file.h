@@ -23,7 +23,7 @@ public:
 	}
 
 	const std::string getToken() {
-		std::string buffer(size, 0);
+		std::string buffer(size + 1, 0);
 		fread(&buffer[0], 1, size, fileHandle);
 		return &buffer[0];
 	}

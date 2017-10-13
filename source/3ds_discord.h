@@ -3,6 +3,7 @@
 
 class ThreeDSDiscordClient : public ThreeDSWebsocketClient {
 public:
+	ThreeDSDiscordClient() {}
 	ThreeDSDiscordClient(const std::string token);
 	void switchServer();
 	void switchChannel();

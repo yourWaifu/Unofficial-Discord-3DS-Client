@@ -36,7 +36,7 @@ private:
 	void disconnect(unsigned int code, const std::string reason);
 	void send(std::string message);
 	int sock;
-	bool isRunning = true;
+	bool isRunning = false;
 
 	std::vector<SleepyDiscord::Server> serverList;
 

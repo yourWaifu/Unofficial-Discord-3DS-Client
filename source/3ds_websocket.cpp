@@ -76,6 +76,7 @@ ThreeDSWebsocketClient::ThreeDSWebsocketClient(const std::string token) {
 		NULL,
 		onMessageCallback
 	};
+	isRunning = true;
 	eventContext = nullptr;
 	start(token, 1);
 }
