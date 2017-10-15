@@ -67,16 +67,16 @@
     <NMakeCleanCommandLine>make clean</NMakeCleanCommandLine>
     <NMakePreprocessorDefinitions>NDEBUG;SLEEPY_ONE_THREAD;SLEEPY_CUSTOM_SESSION;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
     <NMakeReBuildCommandLine>make clean all</NMakeReBuildCommandLine>
-    <NMakeIncludeSearchPath>c:\devkitPro\libctru\include;c:\devkitPro\devkitARM\arm-none-eabi\include\;$(NMakeIncludeSearchPath)</NMakeIncludeSearchPath>
-    <IncludePath>$(ProjectDir)source;$(ProjectDir)include;$(ProjectDir)..\..;$(ProjectDir)..\..\sleepy_discord\IncludeNonexistent;$(IncludePath)</IncludePath>
+    <NMakeIncludeSearchPath>c:\devkitPro\libctru\include;c:\devkitPro\devkitARM\arm-none-eabi\include;$(NMakeIncludeSearchPath)</NMakeIncludeSearchPath>
+    <IncludePath>$(ProjectDir)source;$(ProjectDir)include;C:\devkitPro\portlibs\3ds\include;C:\devkitPro\portlibs\3ds\include\sleepy_discord;C:\devkitPro\portlibs\3ds\include\sleepy_discord\IncludeNonexistent;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <NMakeBuildCommandLine>make</NMakeBuildCommandLine>
     <NMakeCleanCommandLine>make clean</NMakeCleanCommandLine>
     <NMakePreprocessorDefinitions>NDEBUG;SLEEPY_ONE_THREAD;SLEEPY_CUSTOM_SESSION;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
     <NMakeReBuildCommandLine>make clean all</NMakeReBuildCommandLine>
-    <NMakeIncludeSearchPath>c:\devkitPro\libctru\include;c:\devkitPro\devkitARM\arm-none-eabi\include\;$(NMakeIncludeSearchPath)</NMakeIncludeSearchPath>
-    <IncludePath>$(ProjectDir)source;$(ProjectDir)include;$(ProjectDir)..\..;$(ProjectDir)..\..\sleepy_discord\IncludeNonexistent;$(IncludePath)</IncludePath>
+    <NMakeIncludeSearchPath>c:\devkitPro\libctru\include;c:\devkitPro\devkitARM\arm-none-eabi\include;$(NMakeIncludeSearchPath)</NMakeIncludeSearchPath>
+    <IncludePath>$(ProjectDir)source;$(ProjectDir)include;C:\devkitPro\portlibs\3ds\include;C:\devkitPro\portlibs\3ds\include\sleepy_discord;C:\devkitPro\portlibs\3ds\include\sleepy_discord\IncludeNonexistent;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup>
   </ItemDefinitionGroup>

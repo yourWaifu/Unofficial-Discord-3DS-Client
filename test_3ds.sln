@@ -9,24 +9,34 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testgdb_3ds", "testgdb_3ds.
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|3DS = Debug|3DS
 		Debug|x64 = Debug|x64
 		Debug|x86 = Debug|x86
+		Release|3DS = Release|3DS
 		Release|x64 = Release|x64
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{53411D0D-61B8-4B7E-B20C-EC358A9D7141}.Debug|3DS.ActiveCfg = Debug|Win32
+		{53411D0D-61B8-4B7E-B20C-EC358A9D7141}.Debug|3DS.Build.0 = Debug|Win32
 		{53411D0D-61B8-4B7E-B20C-EC358A9D7141}.Debug|x64.ActiveCfg = Debug|x64
 		{53411D0D-61B8-4B7E-B20C-EC358A9D7141}.Debug|x64.Build.0 = Debug|x64
 		{53411D0D-61B8-4B7E-B20C-EC358A9D7141}.Debug|x86.ActiveCfg = Debug|Win32
 		{53411D0D-61B8-4B7E-B20C-EC358A9D7141}.Debug|x86.Build.0 = Debug|Win32
+		{53411D0D-61B8-4B7E-B20C-EC358A9D7141}.Release|3DS.ActiveCfg = Release|Win32
+		{53411D0D-61B8-4B7E-B20C-EC358A9D7141}.Release|3DS.Build.0 = Release|Win32
 		{53411D0D-61B8-4B7E-B20C-EC358A9D7141}.Release|x64.ActiveCfg = Release|x64
 		{53411D0D-61B8-4B7E-B20C-EC358A9D7141}.Release|x64.Build.0 = Release|x64
 		{53411D0D-61B8-4B7E-B20C-EC358A9D7141}.Release|x86.ActiveCfg = Release|Win32
 		{53411D0D-61B8-4B7E-B20C-EC358A9D7141}.Release|x86.Build.0 = Release|Win32
+		{E41BE699-3DEC-4E62-A94F-F7BE135C08CA}.Debug|3DS.ActiveCfg = Debug|Win32
+		{E41BE699-3DEC-4E62-A94F-F7BE135C08CA}.Debug|3DS.Build.0 = Debug|Win32
 		{E41BE699-3DEC-4E62-A94F-F7BE135C08CA}.Debug|x64.ActiveCfg = Debug|x64
 		{E41BE699-3DEC-4E62-A94F-F7BE135C08CA}.Debug|x64.Build.0 = Debug|x64
 		{E41BE699-3DEC-4E62-A94F-F7BE135C08CA}.Debug|x86.ActiveCfg = Debug|Win32
 		{E41BE699-3DEC-4E62-A94F-F7BE135C08CA}.Debug|x86.Build.0 = Debug|Win32
+		{E41BE699-3DEC-4E62-A94F-F7BE135C08CA}.Release|3DS.ActiveCfg = Release|Win32
+		{E41BE699-3DEC-4E62-A94F-F7BE135C08CA}.Release|3DS.Build.0 = Release|Win32
 		{E41BE699-3DEC-4E62-A94F-F7BE135C08CA}.Release|x64.ActiveCfg = Release|x64
 		{E41BE699-3DEC-4E62-A94F-F7BE135C08CA}.Release|x64.Build.0 = Release|x64
 		{E41BE699-3DEC-4E62-A94F-F7BE135C08CA}.Release|x86.ActiveCfg = Release|Win32

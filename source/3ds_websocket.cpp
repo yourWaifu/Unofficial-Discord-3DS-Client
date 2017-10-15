@@ -96,7 +96,7 @@ bool ThreeDSWebsocketClient::pollSocket(int events) {
 }
 
 void ThreeDSWebsocketClient::tick() {
-	heartbeat();
+	resumeHeartbeatLoop();
 	//when a heartbeat fails, eventContext will be null because we're disconnected
 	if (isRunning == false)
 		return;

@@ -11,9 +11,7 @@ public:
 	void launchKeyboardAndSentMessage();
 	Renderer renderer;
 private:
-	void onReady(std::string* jsonMessage) {
-		printf("ready\n");
-	}
+	void onReady(std::string* jsonMessage);
 	void onHeartbeat() {
 		printf("heartbeat sent\n");
 	}
@@ -22,6 +20,11 @@ private:
 	}
 	void onMessage(SleepyDiscord::Message message);
 	void onServer(SleepyDiscord::Server server);
+
+	inline void addServer(SleepyDiscord::Server server) {
+		servers.push_back(server);
+		printf("Added %s to the server list\n", server.name.c_str());
+	}
 
 	inline SleepyDiscord::Server& getCurrentServer() {
 		return servers[currentServerHandle];
@@ -36,6 +39,7 @@ private:
 	//SleepyDiscord::Channel currentChannel;
 	unsigned int currentServerHandle;
 	unsigned int currentChannelHandle;
+	bool isCurrentChannelHandleValid = false;
 
 	void addNewMessage(SleepyDiscord::Message message);
 };

@@ -14,32 +14,42 @@ void ThreeDSDiscordClient::addNewMessage(SleepyDiscord::Message message) {
 }
 
 void ThreeDSDiscordClient::onMessage(SleepyDiscord::Message message) {
+	if (servers.size() == 0 || isCurrentChannelHandleValid == false) return;
 	if (message.channel_id == getCurrentChannel().id) {
 		addNewMessage(message);
 	}
 }
 
 void ThreeDSDiscordClient::onServer(SleepyDiscord::Server server) {
-	servers.push_back(server);
-	printf("Added %s to the server list\n", server.name.c_str());
+	addServer(server);
 }
 
 void ThreeDSDiscordClient::switchServer() {
 	if (servers.size() == 0) return;
-		//change current server
-		if (servers.size() <= ++currentServerHandle)
-			currentServerHandle = 0;
-		//change channel to first channel in that server
-		for (currentChannelHandle = 0; currentChannelHandle < getCurrentServer().channels.size(); ++currentChannelHandle) {
-			if (getCurrentChannel().position == 0) break;
-		}
-	printf("Switched channel to %s #%s\n", getCurrentServer().name.c_str(), getCurrentChannel().name.c_str());
+	//change current server
+	if (servers.size() <= ++currentServerHandle)
+		currentServerHandle = 0;
+	isCurrentChannelHandleValid = false;
+	printf("Switched Server to %s.\n", getCurrentServer().name.c_str());
 }
 
 void ThreeDSDiscordClient::switchChannel() {
 	if (servers.size() == 0) return;
+	unsigned int newChannelPosition;
+	/*if the current channel handle is invalid
+	  then make it valid*/
+	if (isCurrentChannelHandleValid == false) {
+		if (getCurrentServer().channels.size() == 0)
+			getCurrentServer().channels = GetServerChannels(getCurrentServer().id);
+		//change channel to first channel in that server
+		newChannelPosition = 0;
+		isCurrentChannelHandleValid = true;
+	} else {
+		newChannelPosition = getCurrentChannel().position + 1;
+	}
+
 	//get the position of the next channel
-	 unsigned int newChannelPosition = getCurrentChannel().position + 1;
+	
 	const unsigned int channelCount = getCurrentServer().channels.size();
 	if (channelCount <= newChannelPosition)
 		newChannelPosition = 0;
@@ -100,4 +110,14 @@ void ThreeDSDiscordClient::launchKeyboardAndSentMessage() {
 	}
 	//send message
 	sendMessage(getCurrentChannel().id, std::string(buffer.begin(), iteratorToZero));
+}
+
+void ThreeDSDiscordClient::onReady(std::string * jsonMessage) {
+	printf("ready\n");
+	if (!isBot()) {
+		std::vector<SleepyDiscord::Server> servers = getServers();
+		for (SleepyDiscord::Server server : servers) {
+			addServer(server);
+		}
+	}
 }
