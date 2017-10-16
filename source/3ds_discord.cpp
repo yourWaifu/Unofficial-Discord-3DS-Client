@@ -24,10 +24,13 @@ void ThreeDSDiscordClient::onServer(SleepyDiscord::Server server) {
 	addServer(server);
 }
 
-void ThreeDSDiscordClient::switchServer() {
+void ThreeDSDiscordClient::switchServer(int displacement) {
 	if (servers.size() == 0) return;
 	//change current server
-	if (servers.size() <= ++currentServerHandle)
+	currentServerHandle += displacement;
+	if (100 < currentServerHandle)
+		currentServerHandle = servers.size() - 1;
+	else if (servers.size() <= currentServerHandle)
 		currentServerHandle = 0;
 	isCurrentChannelHandleValid = false;
 	printf("Switched Server to %s.\n", getCurrentServer().name.c_str());
@@ -69,7 +72,7 @@ void ThreeDSDiscordClient::switchChannel() {
 }
 
 void ThreeDSDiscordClient::loadMessages() {
-	if (servers.size() == 0) return;
+	if (servers.size() == 0 || isCurrentChannelHandleValid == false) return;
 	std::vector<SleepyDiscord::Message> messages = getMessages(getCurrentChannel().id, limit, "", 8);
 	for (std::vector<SleepyDiscord::Message>::reverse_iterator i = messages.rbegin(), end = messages.rend(); i != end; ++i) {
 		addNewMessage(*i);
@@ -77,7 +80,7 @@ void ThreeDSDiscordClient::loadMessages() {
 }
 
 void ThreeDSDiscordClient::launchKeyboardAndSentMessage() {
-	if (servers.size() == 0) return;
+	if (servers.size() == 0 || isCurrentChannelHandleValid == false) return;
 	//tell discord that we are typing
 	if (sendTyping(getCurrentChannel().id) == false) //error check
 		return;
@@ -114,8 +117,9 @@ void ThreeDSDiscordClient::launchKeyboardAndSentMessage() {
 
 void ThreeDSDiscordClient::onReady(std::string * jsonMessage) {
 	printf("ready\n");
-	if (!isBot()) {
+	if (isBot() == false && servers.size() == 0) {
 		std::vector<SleepyDiscord::Server> servers = getServers();
+		//you should some error checking here
 		for (SleepyDiscord::Server server : servers) {
 			addServer(server);
 		}

@@ -93,8 +93,10 @@ int main() {
 		u32 keysPressedDown = hidKeysDown();
 		if (keysPressedDown & KEY_START)
 			break;
-		if (keysPressedDown & KEY_DRIGHT)//to do make a better ui
-			client.switchServer();
+		if (keysPressedDown & KEY_DLEFT)//to do make a better ui
+			client.switchServer(-1);
+		if (keysPressedDown & KEY_DRIGHT)
+			client.switchServer(1);
 		if (keysPressedDown & KEY_DDOWN)
 			client.switchChannel();
 		if (keysPressedDown & KEY_Y)
