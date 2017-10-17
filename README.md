@@ -1,5 +1,5 @@
-# Discord 3DS Client
-This just a simple Discord client for the 3DS build using the [Sleepy Discord library](https://github.com/yourWaifu/sleepy-discord) and the [Wslay library](https://github.com/tatsuhiro-t/wslay).
+# Unofficial Discord 3DS Client
+This just a simple Discord client (unofficial) for the 3DS build using the [Sleepy Discord library](https://github.com/yourWaifu/sleepy-discord) and the [Wslay library](https://github.com/tatsuhiro-t/wslay).
 
 # Why
 I noticed that a few Discord clients for consoles were using the Discord API incorrectly causing huge issues for those clients. So, I decided to make this as an example of how I think it should have been done. 
