@@ -36,7 +36,7 @@ void ThreeDSDiscordClient::switchServer(int displacement) {
 	printf("Switched Server to %s.\n", getCurrentServer().name.c_str());
 }
 
-void ThreeDSDiscordClient::switchChannel() {
+void ThreeDSDiscordClient::switchChannel(int displacement) {
 	if (servers.size() == 0) return;
 	unsigned int newChannelPosition;
 	/*if the current channel handle is invalid
@@ -48,7 +48,7 @@ void ThreeDSDiscordClient::switchChannel() {
 		newChannelPosition = 0;
 		isCurrentChannelHandleValid = true;
 	} else {
-		newChannelPosition = getCurrentChannel().position + 1;
+		newChannelPosition = getCurrentChannel().position + displacement;
 	}
 
 	//get the position of the next channel

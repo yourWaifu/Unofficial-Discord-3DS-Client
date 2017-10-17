@@ -6,7 +6,7 @@ public:
 	ThreeDSDiscordClient() {}
 	ThreeDSDiscordClient(const std::string token);
 	void switchServer(int displacement);
-	void switchChannel();
+	void switchChannel(int displacement);
 	void loadMessages();
 	void launchKeyboardAndSentMessage();
 	Renderer renderer;

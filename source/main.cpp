@@ -97,8 +97,10 @@ int main() {
 			client.switchServer(-1);
 		if (keysPressedDown & KEY_DRIGHT)
 			client.switchServer(1);
+		if (keysPressedDown & KEY_DUP)
+			client.switchChannel(-1);
 		if (keysPressedDown & KEY_DDOWN)
-			client.switchChannel();
+			client.switchChannel(1);
 		if (keysPressedDown & KEY_Y)
 			client.loadMessages();
 		if (keysPressedDown & KEY_A)
