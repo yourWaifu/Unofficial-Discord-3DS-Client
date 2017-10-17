@@ -28,7 +28,7 @@ void ThreeDSDiscordClient::switchServer(int displacement) {
 	if (servers.size() == 0) return;
 	//change current server
 	currentServerHandle += displacement;
-	if (100 < currentServerHandle)
+	if (-1 == currentServerHandle)
 		currentServerHandle = servers.size() - 1;
 	else if (servers.size() <= currentServerHandle)
 		currentServerHandle = 0;
