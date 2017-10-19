@@ -130,9 +130,9 @@ bool sslErrorCheck(const char* functionName, const Result returnValue, int sockf
 		case true : closesocket(sockfd);
 		}
 		printf("%s returned: %08X\n", functionName, returnValue);
-		return SleepyDiscord::AN_ERROR;
+		return 0;
 	}
-	return SleepyDiscord::NO_ERRORS;
+	return 1;
 }
 
 bool ThreeDSWebsocketClient::connect(const std::string & uri) {
@@ -162,14 +162,14 @@ bool ThreeDSWebsocketClient::connect(const std::string & uri) {
 
 	if (response.statusCode != SleepyDiscord::SWITCHING_PROTOCOLS) { //error check
 		printf("Websocket connection Error: %s\n", response.text.c_str());
-		return SleepyDiscord::AN_ERROR;
+		return 0;
 	}
 
 	//I don't know what this does, but it doesn't work without it
 	int status = fcntl(sock, F_GETFL);
 	fcntl(sock, F_SETFL, status | O_NONBLOCK);
 
-	return SleepyDiscord::NO_ERRORS;
+	return 1;
 }
 
 void ThreeDSWebsocketClient::disconnect(unsigned int code, const std::string reason) {

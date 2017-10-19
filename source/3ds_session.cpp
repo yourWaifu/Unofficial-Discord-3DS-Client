@@ -68,7 +68,7 @@ SleepyDiscord::Response ThreeDSSession::requestInteral(const SleepyDiscord::Requ
 		addrinfo *res;
 		const int getaddrinfo_returned = getaddrinfo(hostname.c_str(), "443", &hints, &res);
 		if (getaddrinfo_returned != 0) 	//error check
-			return { SleepyDiscord::AN_ERROR, "{\"code\":0,\"message\":\"getaddrinfo: " +
+			return { SleepyDiscord::GENERAL_ERROR, "{\"code\":0,\"message\":\"getaddrinfo: " +
 				std::string(gai_strerror(getaddrinfo_returned)) + "\"}",{} };
 		//it's possible to get addresses that don't work, so we need to loop through the list
 		//til one of them works
@@ -84,7 +84,7 @@ SleepyDiscord::Response ThreeDSSession::requestInteral(const SleepyDiscord::Requ
 		//free up memory from addrinfo
 		freeaddrinfo(res);
 		if (sock == -1) {	//error check
-			return { SleepyDiscord::AN_ERROR, "{\"code\":431,\"message\":\"Could not connect to the host\"}",{} };
+			return { SleepyDiscord::GENERAL_ERROR, "{\"code\":431,\"message\":\"Could not connect to the host\"}",{} };
 		}
 
 		//setup ssl
