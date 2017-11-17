@@ -15,7 +15,7 @@ void ThreeDSDiscordClient::addNewMessage(SleepyDiscord::Message message) {
 
 void ThreeDSDiscordClient::onMessage(SleepyDiscord::Message message) {
 	if (servers.size() == 0 || isCurrentChannelHandleValid == false) return;
-	if (message.channel_id == getCurrentChannel().id) {
+	if (message.channelID == getCurrentChannel().ID) {
 		addNewMessage(message);
 	}
 }
@@ -43,7 +43,7 @@ void ThreeDSDiscordClient::switchChannel(int displacement) {
 	  then make it valid*/
 	if (isCurrentChannelHandleValid == false) {
 		if (getCurrentServer().channels.size() == 0)
-			getCurrentServer().channels = GetServerChannels(getCurrentServer().id);
+			getCurrentServer().channels = GetServerChannels(getCurrentServer().ID);
 		//change channel to first channel in that server
 		newChannelPosition = 0;
 		isCurrentChannelHandleValid = true;
@@ -73,7 +73,7 @@ void ThreeDSDiscordClient::switchChannel(int displacement) {
 
 void ThreeDSDiscordClient::loadMessages() {
 	if (servers.size() == 0 || isCurrentChannelHandleValid == false) return;
-	std::vector<SleepyDiscord::Message> messages = getMessages(getCurrentChannel().id, limit, "", 8);
+	std::vector<SleepyDiscord::Message> messages = getMessages(getCurrentChannel().ID, limit, "", 8);
 	for (std::vector<SleepyDiscord::Message>::reverse_iterator i = messages.rbegin(), end = messages.rend(); i != end; ++i) {
 		addNewMessage(*i);
 	}
@@ -82,7 +82,7 @@ void ThreeDSDiscordClient::loadMessages() {
 void ThreeDSDiscordClient::launchKeyboardAndSentMessage() {
 	if (servers.size() == 0 || isCurrentChannelHandleValid == false) return;
 	//tell discord that we are typing
-	if (sendTyping(getCurrentChannel().id) == false) //error check
+	if (sendTyping(getCurrentChannel().ID) == false) //error check
 		return;
 	//init keyboard
 	const int numOfButtons = 2;
@@ -112,7 +112,7 @@ void ThreeDSDiscordClient::launchKeyboardAndSentMessage() {
 		return;
 	}
 	//send message
-	sendMessage(getCurrentChannel().id, std::string(buffer.begin(), iteratorToZero));
+	sendMessage(getCurrentChannel().ID, std::string(buffer.begin(), iteratorToZero));
 }
 
 void ThreeDSDiscordClient::onReady(std::string * jsonMessage) {
