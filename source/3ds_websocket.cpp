@@ -117,10 +117,7 @@ void ThreeDSWebsocketClient::onError(SleepyDiscord::ErrorCode errorCode, const s
 }
 
 void ThreeDSWebsocketClient::sleep(const unsigned int milliseconds) {
-	//I really don't know how to make the 3ds sleep
-	for (float i = 0; i < (milliseconds / 60) + 1 && aptMainLoop(); i++) {
-		gspWaitForVBlank();
-	}
+	svcSleepThread(1e6 * milliseconds);
 }
 
 bool sslErrorCheck(const char* functionName, const Result returnValue, int sockfd, sslcContext *context = nullptr) {

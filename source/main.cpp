@@ -58,10 +58,7 @@ int main() {
 	std::unique_ptr<u32> socketsBuffer((u32*)memalign(align, socketBufferSize));
 	if (!R_SUCCEEDED(socInit(socketsBuffer.get(), socketBufferSize))) {
 		printf("error could not start sockets");
-		//I don't know if this is the right way to wait a sec, but oh well
-		for (int i = 0; i < 60 && aptMainLoop(); i++) {
-			gspWaitForVBlank();
-		}
+		svcSleepThread(1e9);
 		return EXIT_FAILURE;
 	}
 
